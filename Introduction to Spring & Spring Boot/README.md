@@ -119,4 +119,57 @@ your-project-name/
 You can now open the project in IntelliJ IDEA or any other IDE of your choice, and start building your Spring Boot application. Happy coding! 🎉
 
 ---
+## 🧩 **Beans**
 
+- So beans are basically **Java objects** that are managed by the **Spring’s IoC containers**. Instead of you having to create the objects in Java apps, you let Spring and its IoC container do that for you. But now they will not be called as objects but as **Beans**.
+- Moreover, the IoC will take care to **instantiate, assemble, and manage** the object. Oops, I meant **beans**!
+- And these beans are annotated accordingly.
+    - e.g., `@Component`, `@Repository`, `@Service`, `@Controller`
+
+### 📝 **How does it look like in a Java app?**
+
+### 🔧 **Bean Creation**
+
+In a typical Java app, you would create new objects by using the `new` keyword.
+Like `Car car = new Car();`
+
+Let me tell you, the Spring framework does not like the `new` keyword and neither should you. This is because in real-life scenarios you would get thousands of objects and manually managing them on its own is a very hectic process. These user-created objects would take unnecessary amounts of space in your application.
+
+So instead, you would create something like the below without using the `new` keyword and letting Spring do its own job.
+
+```java
+@Autowired
+private Car car;
+```
+
+when your Car class will look like
+
+```java
+@Component
+public class Car {…}
+```
+
+You see we have two annotations here, `@Autowired` and `@Component`. So here the `@Component` tells that this class should be used by the IoC container and the `@Autowired` tells that this object is supposed to be managed by the IoC.
+
+So when the app fires up, Spring will inject the object into your app (which basically is known as **Dependency Injection**).
+
+Now as there is `@Component`, we can use other annotations that can help the developer to understand the codebase better. For example, there is `@Service` annotation (which itself is derived from `@Component`) and it's in the part of the code where all the business logic is written.
+
+There is one more method to create a Bean. That is by creating a configuration class and annotating with `@Configuration`. Then in this class, you can define methods to configure and annotate beans.
+
+This method, in short, is **Explicit Bean Declaration in the Configuration class**.
+
+### 🔄 **Bean Lifecycle**
+
+1. **Bean creation** (Static factory method or Annotation method)
+2. **Dependency Injection**
+3. **Bean Initialized** (`@PostConstruct`; invokes initialization after the bean is configured)
+4. **Bean is used** (Fully ready to use)
+5. **Bean Destroyed**
+
+### 🌐 **Scope of Beans**
+
+- **Singleton Scope:** (Default) Creates a single instance per Spring ApplicationContext, shared by all clients.
+- **Prototype Scope:** Generates a new instance each time the bean is requested, providing a unique instance to each client.
+- **Request Scope:** Associates a new instance with each HTTP request in web-based applications, ensuring isolation between requests.
+- **WebSocket Scope:** Assigns a unique instance to each WebSocket session, managing beans specific to individual WebSocket connections.
