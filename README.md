@@ -3,7 +3,8 @@
 
 # Spring-Voyage
 
-Welcome to the Spring-Voyage repository! We appreciate your interest in contributing to our project. This guide will walk you through the process of contributing.
+Welcome to the Spring-Voyage repository! We appreciate your interest in contributing to our project. 
+This guide will walk you through the process of contributing.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -20,13 +21,13 @@ Welcome to the Spring-Voyage repository! We appreciate your interest in contribu
 
 ## Introduction
 
-Spring-Voyage is a project aimed at [briefly describe the project's purpose]. We welcome contributions from everyone, and this guide will help you get started with contributing to the repository.
+Spring-Voyage is a project aimed at providng Spring & Springboot related contents in easy-to-understand way. We welcome contributions from everyone, and this guide will help you get started with contributing to the repository.
 
 ## Getting Started
 
 ### Fork the Repository
 
-1. Navigate to the [Spring-Voyage repository](https://github.com/your-username/Spring-Voyage) on GitHub.
+1. Navigate to the [Spring-Voyage repository](https://github.com/k2ocabhinav/Spring-Voyage.git) on GitHub.
 2. Click the `Fork` button in the top-right corner of the page to create a copy of the repository under your GitHub account.
 
 ### Clone the Repository
