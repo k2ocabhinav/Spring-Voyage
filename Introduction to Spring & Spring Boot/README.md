@@ -33,17 +33,17 @@ All the above components are part of the Spring framework, and the code for the 
 
 ## 🚀 Setting Up Your Spring Boot Project Environment
 
-## 📋 Prerequisites
+### 📋 Prerequisites
 
 Before we start, ensure you have the following installed on your system:
 
 - **Java Development Kit (JDK)** ☕ - Download from [here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
 
-## 🖥️ Install IntelliJ IDEA (Optional)
+### 🖥️ Install IntelliJ IDEA (Optional)
 
 IntelliJ IDEA is a powerful IDE that can help you streamline your development process with Spring Boot. You can download it from [here](https://www.jetbrains.com/idea/download/).
 
-## 🌐 Go to start.spring.io
+### 🌐 Go to start.spring.io
 
 To create a new Spring Boot project, follow these steps:
 
@@ -114,7 +114,7 @@ your-project-name/
 - **pom.xml**: Project Object Model file which contains project configuration for Maven.
 - **README.md**: Project README file.
 
-## ✅ You're all set!
+### ✅ You're all set!
 
 You can now open the project in IntelliJ IDEA or any other IDE of your choice, and start building your Spring Boot application. Happy coding! 🎉
 
