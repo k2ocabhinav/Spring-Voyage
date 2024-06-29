@@ -71,7 +71,7 @@ Spring-Voyage is a project aimed at providng Spring & Springboot related content
 
 ### Create a Pull Request
 
-1. Navigate to the original [Spring-Voyage repository](https://github.com/your-username/Spring-Voyage) on GitHub.
+1. Navigate to the original [Spring-Voyage repository](https://github.com/k2ocabhinav/Spring-Voyage.git) on GitHub.
 2. Click on the `Pull Requests` tab and then click the `New Pull Request` button.
 3. Select your branch from the list and click `Create Pull Request`.
 4. Add a descriptive title and detailed description of your changes.
