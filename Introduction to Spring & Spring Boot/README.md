@@ -70,31 +70,33 @@ To create a new Spring Boot project, follow these steps:
 
 Unzip the downloaded file to a location of your choice. This will create a directory structure similar to the following:
 
+<pre>
 your-project-name/
 ├── .mvn/
-│ └── wrapper/
+│   └── wrapper/
 ├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ └── com/
-│ │ │ └── example/
-│ │ │ └── yourproject/
-│ │ │ └── YourProjectApplication.java
-│ │ └── resources/
-│ │ ├── static/
-│ │ ├── templates/
-│ │ └── application.properties
-│ └── test/
-│ ├── java/
-│ │ └── com/
-│ │ └── example/
-│ │ └── yourproject/
-│ │ └── YourProjectApplicationTests.java
-│ └── resources/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── yourproject/
+│   │   │               └── YourProjectApplication.java
+│   │   └── resources/
+│   │       ├── static/
+│   │       ├── templates/
+│   │       └── application.properties
+│   └── test/
+│       ├── java/
+│       │   └── com/
+│       │       └── example/
+│       │           └── yourproject/
+│       │               └── YourProjectApplicationTests.java
+│       └── resources/
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
 └── README.md
+</pre>
 
 
 ### 📂 Directory and File Overview
