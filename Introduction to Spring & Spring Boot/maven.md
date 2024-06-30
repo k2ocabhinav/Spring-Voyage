@@ -68,13 +68,13 @@ Spring applications are a type of software project. Maven helps build these proj
 
 ```mermaid
 flowchart TD
-A[pom.xml] --> B[Project Metadata & Configurations]
-A --> C[Dependencies Management]
-B --> D[Maven Automates Build Process]
-D --> E[Compilation]
-D --> F[Testing]
-D --> G[Packaging]
-D --> H[Deployment]
+    A[pom.xml] --> B[Project Metadata & Configurations]
+    A --> C[Dependencies Management]
+    B --> D[Maven Automates Build Process]
+    D --> E[Compilation]
+    D --> F[Testing]
+    D --> G[Packaging]
+    D --> H[Deployment]
 
     subgraph Lifecycle_Phases
         direction TB
@@ -108,28 +108,29 @@ D --> H[Deployment]
     M -->|Executed by| Maven_Commands
     N -->|Executed by| Maven_Commands
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#cfc,stroke:#333,stroke-width:2px
-    style F fill:#cfc,stroke:#333,stroke-width:2px
-    style G fill:#cfc,stroke:#333,stroke-width:2px
-    style H fill:#cfc,stroke:#333,stroke-width:2px
+    style A fill:#333745,stroke:#eef5db,stroke-width:2px,color:#000
+    style B fill:#e63462,stroke:#eef5db,stroke-width:2px,color:#000
+    style C fill:#333745,stroke:#eef5db,stroke-width:2px,color:#000
+    style D fill:#e63462,stroke:#eef5db,stroke-width:2px,color:#000
+    style E fill:#fe5f55,stroke:#eef5db,stroke-width:2px,color:#000
+    style F fill:#fe5f55,stroke:#eef5db,stroke-width:2px,color:#000
+    style G fill:#fe5f55,stroke:#eef5db,stroke-width:2px,color:#000
+    style H fill:#fe5f55,stroke:#eef5db,stroke-width:2px,color:#000
 
-    style I fill:#ffc,stroke:#333,stroke-width:2px
-    style J fill:#ffc,stroke:#333,stroke-width:2px
-    style K fill:#ffc,stroke:#333,stroke-width:2px
-    style L fill:#ffc,stroke:#333,stroke-width:2px
-    style M fill:#ffc,stroke:#333,stroke-width:2px
-    style N fill:#ffc,stroke:#333,stroke-width:2px
+    style I fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
+    style J fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
+    style K fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
+    style L fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
+    style M fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
+    style N fill:#C7EFCF,stroke:#333745,stroke-width:2px,color:#000
 
-    style O fill:#fcc,stroke:#333,stroke-width:2px
-    style P fill:#fcc,stroke:#333,stroke-width:2px
-    style Q fill:#fcc,stroke:#333,stroke-width:2px
-    style R fill:#fcc,stroke:#333,stroke-width:2px
-    style S fill:#fcc,stroke:#333,stroke-width:2px
-    style T fill:#fcc,stroke:#333,stroke-width:2px
-    style U fill:#fcc,stroke:#333,stroke-width:2px
-    style V fill:#fcc,stroke:#333,stroke-width:2px
+    style O fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style P fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style Q fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style R fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style S fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style T fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style U fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+    style V fill:#eef5db,stroke:#333745,stroke-width:2px,color:#000
+
 ```
