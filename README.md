@@ -1,5 +1,6 @@
 # Spring-Voyage
 🚀 Embark on my Spring Voyage: A snappy log of notes, cheatsheets, and code wizardry! 📝
+Note: This is a beginner friendly repo where one can start their contribution journey
 
 # Spring-Voyage
 
