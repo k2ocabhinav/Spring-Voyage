@@ -8,6 +8,7 @@ import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "employees")
@@ -49,5 +50,20 @@ public class EmployeeController {
         return "Hello from POST request";
     }
 
+//    USING REPOSITORY TO WORK WITH ENTITIES
+    @GetMapping(path = "/emp/{id}")
+    public EmployeeEntity findEmployeeById(@PathVariable Long id){
+        return employeeRepository.findById(id).orElse(null);
+    }
+
+    @GetMapping(path = "/emp")
+    public List<EmployeeEntity> getAllEmployees(){
+        return employeeRepository.findAll();
+    }
+
+    @PostMapping(path = "/emp/create")
+    public EmployeeEntity createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
+        return employeeRepository.save(employeeEntity);
+    }
 
 }
