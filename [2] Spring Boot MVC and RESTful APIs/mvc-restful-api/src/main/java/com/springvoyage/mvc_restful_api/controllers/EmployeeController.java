@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "employees")
@@ -78,20 +79,36 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path = "/empSer/{id}")
+    @GetMapping(path = "/empService/{id}")
     public EmployeeDTO getEmployeeById(@PathVariable Long id){
         return employeeService.getEmployeeById(id);
     }
 
-    @GetMapping(path = "/empSer")
+    @GetMapping(path = "/empService")
     public List<EmployeeDTO> getAllEmployees(){
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping(path = "/empSer/create")
+    @PostMapping(path = "/empService/create")
     public EmployeeDTO createNewEmployee(@RequestBody EmployeeDTO employeeDTO){
         return employeeService.save(employeeDTO);
     }
+
+    @PutMapping(path = "empService/update/{id}")
+    public EmployeeDTO updateEmployeeById(@RequestBody EmployeeDTO employeeDTO, @PathVariable Long id){
+        return employeeService.updateEmployeeById(id, employeeDTO);
+    }
+
+    @DeleteMapping(path = "empService/delete/{id}")
+    public boolean deleteEmployeeById(@PathVariable Long id){
+        return employeeService.deleteEmployeeById(id);
+    }
+
+    @PatchMapping(path = "empService/patch/{id}")
+    public EmployeeDTO patchEmployeeById(@RequestBody Map<String, Object> updates, @PathVariable Long id){
+        return employeeService.patchEmployeeById(updates, id);
+    }
+
 
 }
 
