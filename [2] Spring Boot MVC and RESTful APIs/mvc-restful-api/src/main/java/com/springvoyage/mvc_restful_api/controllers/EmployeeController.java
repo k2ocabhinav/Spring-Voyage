@@ -51,6 +51,9 @@ public class EmployeeController {
     }
 
 //    USING REPOSITORY TO WORK WITH ENTITIES
+//    THIS IS NOT RECOMMENDED EITHER. THERE SHOULD BE SERVICE LAYER IN BETWEEN THE PERSISTENCE LAYER
+//    AND THE PRESENTATION LAYER
+
     @GetMapping(path = "/emp/{id}")
     public EmployeeEntity findEmployeeById(@PathVariable Long id){
         return employeeRepository.findById(id).orElse(null);
@@ -67,3 +70,4 @@ public class EmployeeController {
     }
 
 }
+
