@@ -3,6 +3,7 @@ package com.springvoyage.mvc_restful_api.controllers;
 import com.springvoyage.mvc_restful_api.dto.EmployeeDTO;
 import com.springvoyage.mvc_restful_api.entities.EmployeeEntity;
 import com.springvoyage.mvc_restful_api.repositories.EmployeeRepository;
+import com.springvoyage.mvc_restful_api.services.EmployeeService;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping(path = "employees")
 public class EmployeeController {
 
-    private final EmployeeRepository employeeRepository;
+/*  private final EmployeeRepository employeeRepository;
 
     public EmployeeController(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -48,25 +49,48 @@ public class EmployeeController {
     @PostMapping(path = "/post")
     public String postHello() {
         return "Hello from POST request";
-    }
+    }*/
 
 //    USING REPOSITORY TO WORK WITH ENTITIES
 //    THIS IS NOT RECOMMENDED EITHER. THERE SHOULD BE SERVICE LAYER IN BETWEEN THE PERSISTENCE LAYER
 //    AND THE PRESENTATION LAYER
 
-    @GetMapping(path = "/emp/{id}")
+/*    @GetMapping(path = "/empRepo/{id}")
     public EmployeeEntity findEmployeeById(@PathVariable Long id){
         return employeeRepository.findById(id).orElse(null);
     }
 
-    @GetMapping(path = "/emp")
+    @GetMapping(path = "/empRepo")
     public List<EmployeeEntity> getAllEmployees(){
         return employeeRepository.findAll();
     }
 
-    @PostMapping(path = "/emp/create")
+    @PostMapping(path = "/empRepo/create")
     public EmployeeEntity createNewEmployee(@RequestBody EmployeeEntity employeeEntity){
         return employeeRepository.save(employeeEntity);
+    }*/
+
+//    USING SERVICE CLASS
+
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping(path = "/empSer/{id}")
+    public EmployeeDTO getEmployeeById(@PathVariable Long id){
+        return employeeService.getEmployeeById(id);
+    }
+
+    @GetMapping(path = "/empSer")
+    public List<EmployeeDTO> getAllEmployees(){
+        return employeeService.getAllEmployees();
+    }
+
+    @PostMapping(path = "/empSer/create")
+    public EmployeeDTO createNewEmployee(@RequestBody EmployeeDTO employeeDTO){
+        return employeeService.save(employeeDTO);
     }
 
 }
