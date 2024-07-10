@@ -24,7 +24,7 @@
 
 #### ResponseEntity Explained
 
-`ResponseEntity` is a type in Spring MVC that represents an HTTP response, including the status code, headers, and body. It's a flexible way to configure the HTTP response. Here's a breakdown of how it works in your code:
+`ResponseEntity` is a type in Spring MVC that represents an HTTP response, including the status code, headers, and body. It's a flexible way to configure the HTTP response. 
 
 **Purpose:** Represents an HTTP response, including the status code, headers, and body.
 
@@ -48,7 +48,7 @@ public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
 
 #### Optional
 
-`Optional` is a container object used to contain not-null objects. It is used to represent the absence or presence of a value. In the context of your code:
+`Optional` is a container object used to contain not-null objects. It is used to represent the absence or presence of a value. 
 
 - When fetching an employee by ID, `Optional<EmployeeDTO>` is used to handle the case where an employee might not exist.
 - Using `Optional`, you can avoid null checks and handle the absence of a value more gracefully.
@@ -77,9 +77,9 @@ return employeeDTO
 3. **Handling the Case Where the Value is Not Present**:
    - `.orElse(ResponseEntity.notFound().build())` is applied if the `Optional` is empty. If there is no value present, `orElse` will return `ResponseEntity.notFound().build()`, which creates a `ResponseEntity` with a 404 status code.
 
-#### Detailed Steps and Visual Representation
+#### Detailed Steps and Visual Representation 
 
-- **Box with Toy (Present):**
+- **Box with Toy (Example when Obj is Present):**
   - `employeeDTO` -> `Optional<EmployeeDTO>` -> `map(ResponseEntity::ok)` -> `ResponseEntity.ok(employeeDTO)`
 
 - **Empty Box (Not Present):**
