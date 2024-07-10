@@ -1,16 +1,12 @@
 package com.springvoyage.mvc_restful_api.controllers;
 
 import com.springvoyage.mvc_restful_api.dto.EmployeeDTO;
-import com.springvoyage.mvc_restful_api.entities.EmployeeEntity;
-import com.springvoyage.mvc_restful_api.repositories.EmployeeRepository;
 import com.springvoyage.mvc_restful_api.services.EmployeeService;
-import jakarta.annotation.PostConstruct;
-import lombok.Data;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -97,26 +93,29 @@ public class EmployeeController {
     }
 
     @PostMapping(path = "/empService/create")
-    public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody EmployeeDTO employeeDTO){
+    public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody @Valid EmployeeDTO employeeDTO){
         EmployeeDTO savedEmployee = employeeService.save(employeeDTO);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "empService/update/{id}")
-    public EmployeeDTO updateEmployeeById(@RequestBody EmployeeDTO employeeDTO, @PathVariable Long id){
-        return employeeService.updateEmployeeById(id, employeeDTO);
+    public ResponseEntity<EmployeeDTO> updateEmployeeById(@RequestBody EmployeeDTO employeeDTO, @PathVariable Long id){
+       EmployeeDTO updatedemployeeDTO = employeeService.updateEmployeeById(id, employeeDTO);
+       return ResponseEntity.ok(updatedemployeeDTO);
     }
 
     @DeleteMapping(path = "empService/delete/{id}")
-    public boolean deleteEmployeeById(@PathVariable Long id){
-        return employeeService.deleteEmployeeById(id);
+    public ResponseEntity<Boolean> deleteEmployeeById(@PathVariable Long id){
+        if(employeeService.deleteEmployeeById(id)) //If it is deleted
+            return ResponseEntity.ok(true);
+        return ResponseEntity.notFound().build(); //Else
     }
 
     @PatchMapping(path = "empService/patch/{id}")
-    public EmployeeDTO patchEmployeeById(@RequestBody Map<String, Object> updates, @PathVariable Long id){
-        return employeeService.patchEmployeeById(updates, id);
+    public ResponseEntity<EmployeeDTO> patchEmployeeById(@RequestBody Map<String, Object> updates, @PathVariable Long id){
+        EmployeeDTO patchedEmployeeDTO = employeeService.patchEmployeeById(updates, id);
+        if(patchedEmployeeDTO == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(patchedEmployeeDTO);
     }
-
-
 }
 

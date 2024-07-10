@@ -17,12 +17,14 @@ import java.time.LocalDate;
 public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
     private String email;
     private Integer age;
     private LocalDate dateOfJoining;
     @JsonProperty("isActive")
     private Boolean isActive;
+    private String role;
+    private Double salary;
 }
 
