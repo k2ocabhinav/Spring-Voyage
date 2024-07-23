@@ -1,16 +1,20 @@
 package com.springvoyage.mvc_restful_api.controllers;
 
 import com.springvoyage.mvc_restful_api.dto.EmployeeDTO;
+import com.springvoyage.mvc_restful_api.exceptions.ResourceNotFoundException;
 import com.springvoyage.mvc_restful_api.services.EmployeeService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "employees")
 public class EmployeeController {
@@ -74,8 +78,14 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
+/*    Using @RequiredArgsConstructor instead of this constructor method
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }*/
+
+    @GetMapping(path = "/empService")
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployees(){
+        return ResponseEntity.ok(employeeService.getAllEmployees());
     }
 
     @GetMapping(path = "/empService/{id}")
@@ -83,14 +93,9 @@ public class EmployeeController {
         Optional<EmployeeDTO> employeeDTO =  employeeService.getEmployeeById(id);
         return employeeDTO
                 .map(ResponseEntity::ok) // If present, return HTTP 200 with the employee data
-                .orElse(ResponseEntity.notFound().build()); // If not present, return HTTP 404
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found")); // If not present, throw exception
     }
 
-
-    @GetMapping(path = "/empService")
-    public ResponseEntity<List<EmployeeDTO>> getAllEmployees(){
-        return ResponseEntity.ok(employeeService.getAllEmployees());
-    }
 
     @PostMapping(path = "/empService/create")
     public ResponseEntity<EmployeeDTO> createNewEmployee(@RequestBody @Valid EmployeeDTO employeeDTO){

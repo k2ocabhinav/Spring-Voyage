@@ -2,6 +2,7 @@ package com.springvoyage.mvc_restful_api.services;
 
 import com.springvoyage.mvc_restful_api.dto.EmployeeDTO;
 import com.springvoyage.mvc_restful_api.entities.EmployeeEntity;
+import com.springvoyage.mvc_restful_api.exceptions.ResourceNotFoundException;
 import com.springvoyage.mvc_restful_api.repositories.EmployeeRepository;
 import org.aspectj.util.Reflection;
 import org.modelmapper.ModelMapper;
@@ -23,8 +24,10 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
         this.modelMapper = modelMapper;
     }
-    public boolean isExistsByEmployeeId(Long id){
-        return employeeRepository.existsById(id);
+    public void isExistsByEmployeeId(Long id) throws ResourceNotFoundException {
+        if(!employeeRepository.existsById(id)){
+            throw new ResourceNotFoundException(STR."Employee not found with ID: \{id}");
+        }
     }
 
 
@@ -55,15 +58,14 @@ public class EmployeeService {
     }
 
     public boolean deleteEmployeeById(Long id) {
-        if(!isExistsByEmployeeId(id)) return false;
+        isExistsByEmployeeId(id);
         employeeRepository.deleteById(id);
         return true;
     }
 
     public EmployeeDTO patchEmployeeById(Map<String, Object> updates, Long id) {
         // Check if the employee exists
-        if(!isExistsByEmployeeId(id)) return null;
-
+        isExistsByEmployeeId(id);
         // Fetch the employee entity from the repository
         EmployeeEntity employeeEntity = employeeRepository.findById(id).get();
 
